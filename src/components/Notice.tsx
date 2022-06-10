@@ -1,9 +1,10 @@
 import { AppBar } from '@mui/material';
-import { AppBarContent } from '../../styles/notice-styled';
+import { FC } from 'react';
+import { AppBarContent } from 'styles/custom-styled';
 
-const Notice = () => {
+const Notice: FC = () => {
   return (
-    <AppBar sx={{ backgroundColor: '#000' }}>
+    <AppBar position='sticky' sx={{ backgroundColor: '#000' }}>
       <AppBarContent>
         Scroll down to view our amazing photos. Enjoy!
       </AppBarContent>

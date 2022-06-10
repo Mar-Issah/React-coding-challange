@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	overflow-x: hidden;
 }
 
 a {
@@ -23,3 +24,6 @@ body::-webkit-scrollbar-thumb {
 	border-radius: 20px;
 }
 
+.card:hover > .info {
+	  opacity: 1 !important;
+	}
