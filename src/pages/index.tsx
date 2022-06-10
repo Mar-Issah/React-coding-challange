@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import { Box, InputBase, Divider } from '@mui/material';
-// import ImageGrid from 'components/ImageGrid';
+import ImageGrid from 'components/ImageGrid';
 import { Search } from 'styles/custom-styled';
 import { ImSearch } from 'react-icons/im';
 
@@ -13,7 +13,7 @@ const Home: NextPage = () => {
         </Search>
       </Box>
       <Divider />
-      {/* <ImageGrid /> */}
+      <ImageGrid />
     </Box>
   );
 };
