@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Button } from '@mui/material';
 import { FC, Fragment } from 'react';
 import ImageCard from './ImageCard';
 import { usePhotosData } from 'hooks/usePhotosData';
@@ -17,20 +17,14 @@ const ImageGrid: FC = () => {
     isFetchingNextPage,
   } = usePhotosData();
 
-  console.log(data);
   return (
     <Box sx={{ flexGrow: 1 }} p={3}>
       <Grid container spacing={{ xs: 1, md: 2 }}>
-        {/* {Array.from(Array(6)).map((_, index: number) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-            <ImageCard />
-          </Grid>
-        ))} */}
         {data &&
-          data?.pages.map((group: AxiosResponse<any>, idx: number) => {
+          data?.pages.map((page: AxiosResponse<any>, idx: number) => {
             return (
               <Fragment key={idx}>
-                {group.data.map((photo: any, idx: number) => (
+                {page.data.map((photo: any, idx: number) => (
                   <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
                     <ImageCard photo={photo} />
                   </Grid>
@@ -38,16 +32,18 @@ const ImageGrid: FC = () => {
               </Fragment>
             );
           })}
-        <div>
-          {hasNextPage && (
-            <button
-              onClick={() => fetchNextPage()}
-              disabled={!hasNextPage || isFetchingNextPage}
-            >
-              {isFetchingNextPage ? 'Loading ...' : 'More'}
-            </button>
-          )}
-        </div>
+        <Box>
+          {/* {hasNextPage && ( */}
+          <Button
+            variant='contained'
+            color='success'
+            onClick={() => fetchNextPage()}
+            // disabled={!hasNextPage || isFetchingNextPage}
+          >
+            {isFetchingNextPage ? 'Loading ...' : 'More'}
+          </Button>
+          {/* )} */}
+        </Box>
       </Grid>
     </Box>
   );

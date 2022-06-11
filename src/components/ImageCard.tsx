@@ -3,25 +3,26 @@ import { FC } from 'react';
 import { ProfileContainer, ImgCard, Info } from 'styles/custom-styled';
 
 //this component display a single image
-const ImageCard: FC = () => {
+const ImageCard: FC<any> = ({ photo }) => {
+  console.log(photo);
   return (
     <ImgCard className='card'>
       <CardMedia
         component='img'
         height='300'
-        image='https://res.cloudinary.com/dytnpjxrd/image/upload/v1654864990/ZENC/ivan-kazlouskij-b7R2wAlbYDU-unsplash_1_v2v7no.jpg'
-        alt='Unsplash photo'
+        image={photo.urls.regular}
+        alt={photo.alt_description}
         loading='lazy'
       />
       <Info className='info'>
         <ProfileContainer m={1}>
           <Avatar
-            alt='Marsiya Issah'
-            src='https://images.unsplash.com/profile-1470086144548-9b86aec8f374?ixlib=rb-1.2.1&crop=faces&fit=crop&w=128&h=128'
+            alt={photo.user.name}
+            src={photo.user.profile_image.large}
             sx={{ width: 24, height: 24 }}
           />
           <Typography variant='body2' ml={1}>
-            By Marsiya Issah
+            By {photo.user.name}
           </Typography>
         </ProfileContainer>
       </Info>
