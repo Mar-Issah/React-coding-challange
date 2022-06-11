@@ -1,8 +1,8 @@
-import { Box, Grid, CardMedia, Typography, Avatar } from '@mui/material';
+import { CardMedia, Typography, Avatar } from '@mui/material';
 import { FC } from 'react';
 import { ProfileContainer, ImgCard, Info } from 'styles/custom-styled';
-//import { makeStyles } from '@material-ui/core/styles';
 
+//this component display a single image
 const ImageCard: FC = () => {
   return (
     <ImgCard className='card'>

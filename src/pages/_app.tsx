@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 import Layout from 'components/Layout';
 import { ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const theme = createTheme({
   breakpoints: {
@@ -17,12 +18,15 @@ const theme = createTheme({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const queryClient = new QueryClient();
   return (
-    <ThemeProvider theme={theme}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 
