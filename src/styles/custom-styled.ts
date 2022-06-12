@@ -53,3 +53,11 @@ export const ImgCard = styled(Card)`
   max-width: 345px;
   margin: auto;
 `;
+
+//Modal Styles
+export const ImageContainer = styled.div`
+  height: 60vh;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+`;
