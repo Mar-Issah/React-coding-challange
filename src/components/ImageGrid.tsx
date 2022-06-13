@@ -10,11 +10,7 @@ import { FC, Fragment, useState } from 'react';
 import ImageCard from './ImageCard';
 import { AxiosResponse } from 'axios';
 import { ButtonContainer } from 'styles/custom-styled';
-import {
-  useInfiniteQuery,
-  QueryFunctionContext,
-  GetNextPageParamFunction,
-} from 'react-query';
+import { useInfiniteQuery, QueryFunctionContext } from 'react-query';
 import axios from 'axios';
 
 //query function to fetch data from unsplash api
@@ -42,7 +38,7 @@ const ImageGrid: FC = () => {
     isFetchingNextPage,
   } = useInfiniteQuery(
     ['photos'],
-    (pageParam: QueryFunctionContext<any>) => fetchPhotos(pageParam),
+    ({ pageParam }: QueryFunctionContext<any>) => fetchPhotos(pageParam),
     {
       getNextPageParam: (_lastPage: any, pages: any[]) => {
         return pages.length + 1;
