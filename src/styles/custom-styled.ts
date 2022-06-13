@@ -16,15 +16,6 @@ export const AppBarContent = styled.span`
   animation: ${move} 25s linear infinite;
 `;
 
-//Homepage  styles
-export const Search = styled(Toolbar)`
-  background-color: #fff;
-  border-radius: 1.25rem;
-  width: 30vw;
-  min-height: 1rem !important;
-  border: 0.125rem solid black;
-  margin: 0.525rem 0.525rem;
-`;
 //Image grid style
 export const ButtonContainer = styled(Box)`
   width: 100%;
@@ -57,7 +48,7 @@ export const ProfileContainer = styled(Box)`
 `;
 export const ImgCard = styled(Card)`
   position: relative;
-  max-width: 345px;
+  max-width: 21.725rem;
   margin: auto;
 `;
 

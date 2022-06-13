@@ -5,6 +5,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
+//define MUI custom breakpoints
 const theme = createTheme({
   breakpoints: {
     values: {

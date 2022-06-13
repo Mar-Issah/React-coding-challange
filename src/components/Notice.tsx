@@ -6,7 +6,7 @@ const Notice: FC = () => {
   return (
     <AppBar position='sticky' sx={{ backgroundColor: '#000' }}>
       <AppBarContent>
-        Search and scroll down to view our amazing photos. Enjoy!
+        Scroll down to view our amazing photos. Enjoy!
       </AppBarContent>
     </AppBar>
   );

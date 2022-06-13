@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   padding: 0;
@@ -8,23 +12,20 @@ body {
 	scroll-behavior: smooth;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
 
 body::-webkit-scrollbar {
   width: 12px;
 }
 body::-webkit-scrollbar-thumb {
-  background: #c7c3c3;
+  background: #5c5b5b;
 	border-radius: 20px;
 }
 
 .card:hover > .info {
 	  opacity: 1 !important;
 	}
+
+	a {
+  color: inherit;
+  text-decoration: none;
+}

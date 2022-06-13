@@ -6,7 +6,8 @@ import PhotoModal from './PhotoModal';
 interface Photo {
   photo: any;
 }
-//this component display a single image
+//this component display a single image.
+// Modal is triggered when user clicks on image card
 const ImageCard: FC<Photo> = ({ photo }: Photo) => {
   const [open, setOpen] = useState<boolean>(false);
   const handleOpen = () => setOpen(true);

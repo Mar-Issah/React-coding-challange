@@ -8,36 +8,60 @@ import {
 } from '@mui/material';
 import { FC, Fragment, useState } from 'react';
 import ImageCard from './ImageCard';
-import { usePhotosData } from 'hooks/usePhotosData';
 import { AxiosResponse } from 'axios';
 import { ButtonContainer } from 'styles/custom-styled';
+import {
+  useInfiniteQuery,
+  QueryFunctionContext,
+  GetNextPageParamFunction,
+} from 'react-query';
+import axios from 'axios';
+
+//query function to fetch data from unsplash api
+const fetchPhotos = ({ pageParam = 1 }: { pageParam: number }) => {
+  console.log(pageParam);
+  return axios.get(
+    `https://api.unsplash.com/photos/?page=${pageParam}&per_page=12&client_id=${process.env.NEXT_PUBLIC_ACCESS_ID}`
+  );
+};
 
 //this component display list of images
 const ImageGrid: FC = () => {
   const [open, setOpen] = useState<boolean>(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
   const {
     isLoading,
+    data,
     isError,
     error,
-    data,
-    fetchNextPage,
     hasNextPage,
+    fetchNextPage,
     isFetching,
     isFetchingNextPage,
-  } = usePhotosData();
+  } = useInfiniteQuery(
+    ['photos'],
+    (pageParam: QueryFunctionContext<any>) => fetchPhotos(pageParam),
+    {
+      getNextPageParam: (_lastPage: any, pages: any[]) => {
+        return pages.length + 1;
+      },
+    }
+  );
+
+  console.log(data);
 
   if (isLoading) {
     return (
-      <Box textAlign='center' mt='25%'>
+      <Box position='absolute' right='50%' top='50%'>
         <CircularProgress color='inherit' />
       </Box>
     );
   }
   console.log(data);
 
-  //dispplay snackbar if any error occurs
+  //display snackbar if any error occurs
   if (isError) {
     return (
       <>
