@@ -1,34 +1,34 @@
 import type { NextPage } from 'next';
-import { Box, InputBase, Divider } from '@mui/material';
 import ImageGrid from 'components/ImageGrid';
-import { Search } from 'styles/custom-styled';
-import { ImSearch } from 'react-icons/im';
-import React, { useState } from 'react';
+import { Box, Tooltip, Fab } from '@mui/material';
+import { MdKeyboardArrowUp } from 'react-icons/md';
 
 const Home: NextPage = () => {
-  const [searchValue, setSearchValue] = useState<string>('');
-
-  console.log(searchValue);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setSearchValue(e.target.value);
+  //function to scroll page to the top
+  const handleScroll = () => {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   };
+
   return (
-    <Box sx={{ backgroundColor: '#f2f2f2', minHeight: '100vh' }}>
-      <Box display='flex' justifyContent='end'>
-        <Search>
-          <ImSearch />{' '}
-          <InputBase
-            value={searchValue}
-            type='text'
-            onChange={handleChange}
-            placeholder=' Search...'
-          />
-        </Search>
+    <>
+      <Box sx={{ backgroundColor: '#f2f2f2', minHeight: '100vh' }}>
+        <ImageGrid />
       </Box>
-      <Divider />
-      <ImageGrid />
-    </Box>
+      <Tooltip
+        title='Scroll to the top'
+        sx={{
+          position: 'fixed',
+          bottom: 20,
+          right: 20,
+        }}
+        onClick={handleScroll}
+      >
+        <Fab size='small' color='primary' aria-label='scroll to top'>
+          <MdKeyboardArrowUp />
+        </Fab>
+      </Tooltip>
+    </>
   );
 };
 

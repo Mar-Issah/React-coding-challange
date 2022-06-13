@@ -3,12 +3,15 @@ import { FC, useState } from 'react';
 import { ProfileContainer, ImgCard, Info } from 'styles/custom-styled';
 import PhotoModal from './PhotoModal';
 
+interface Photo {
+  photo: any;
+}
 //this component display a single image
-const ImageCard: FC<any> = ({ photo }) => {
+const ImageCard: FC<Photo> = ({ photo }: Photo) => {
   const [open, setOpen] = useState<boolean>(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  console.log(photo);
+
   return (
     <>
       <PhotoModal

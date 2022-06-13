@@ -25,6 +25,13 @@ export const Search = styled(Toolbar)`
   border: 0.125rem solid black;
   margin: 0.525rem 0.525rem;
 `;
+//Image grid style
+export const ButtonContainer = styled(Box)`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem;
+`;
 
 //Image card  styles
 export const Info = styled.div`
@@ -56,7 +63,7 @@ export const ImgCard = styled(Card)`
 
 //Modal Styles
 export const ImageContainer = styled.div`
-  height: 60vh;
+  height: 50vh;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

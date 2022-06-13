@@ -10,7 +10,7 @@ import { FC, Fragment, useState } from 'react';
 import ImageCard from './ImageCard';
 import { usePhotosData } from 'hooks/usePhotosData';
 import { AxiosResponse } from 'axios';
-import PhotoModal from './PhotoModal';
+import { ButtonContainer } from 'styles/custom-styled';
 
 //this component display list of images
 const ImageGrid: FC = () => {
@@ -35,6 +35,7 @@ const ImageGrid: FC = () => {
       </Box>
     );
   }
+  console.log(data);
 
   //dispplay snackbar if any error occurs
   if (isError) {
@@ -64,18 +65,20 @@ const ImageGrid: FC = () => {
               </Fragment>
             );
           })}
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-          {/* {hasNextPage && ( */}
-          <Button
-            variant='contained'
-            color='success'
-            onClick={() => fetchNextPage()}
-            // disabled={!hasNextPage || isFetchingNextPage}
-          >
-            {isFetchingNextPage ? 'Loading ...' : 'More'}
-          </Button>
-          {/* )} */}
-        </Box>
+        <ButtonContainer>
+          {hasNextPage && (
+            <Button
+              style={{
+                backgroundColor: '#000',
+              }}
+              variant='contained'
+              onClick={() => fetchNextPage()}
+              disabled={!hasNextPage || isFetchingNextPage}
+            >
+              {isFetchingNextPage ? 'Loading ...' : 'More'}
+            </Button>
+          )}
+        </ButtonContainer>
       </Grid>
     </Box>
   );
