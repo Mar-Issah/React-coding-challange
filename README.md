@@ -31,4 +31,4 @@ yarn dev
 
 ## Deploy on Vercel
 
-Deployed code can be found on
+Deployed code can be found on [TechGuilds Coding Challenge](https://techguilds-coding-challange-beta.vercel.app/)

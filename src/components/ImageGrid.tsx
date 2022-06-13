@@ -10,11 +10,11 @@ import { FC, Fragment, useState } from 'react';
 import ImageCard from './ImageCard';
 import { AxiosResponse } from 'axios';
 import { ButtonContainer } from 'styles/custom-styled';
-import { useInfiniteQuery, QueryFunctionContext } from 'react-query';
+import { useInfiniteQuery } from 'react-query';
 import axios from 'axios';
 
 //query function to fetch data from unsplash api
-const fetchPhotos = ({ pageParam = 1 }: { pageParam: number }) => {
+const fetchPhotos = ({ pageParam = 1 }: { pageParam?: number | undefined }) => {
   console.log(pageParam);
   return axios.get(
     `https://api.unsplash.com/photos/?page=${pageParam}&per_page=12&client_id=${process.env.NEXT_PUBLIC_ACCESS_ID}`
@@ -36,17 +36,11 @@ const ImageGrid: FC = () => {
     fetchNextPage,
     isFetching,
     isFetchingNextPage,
-  } = useInfiniteQuery(
-    ['photos'],
-    ({ pageParam }: QueryFunctionContext<any>) => fetchPhotos(pageParam),
-    {
-      getNextPageParam: (_lastPage: any, pages: any[]) => {
-        return pages.length + 1;
-      },
-    }
-  );
-
-  console.log(data);
+  } = useInfiniteQuery(['photos'], fetchPhotos, {
+    getNextPageParam: (_lastPage: any, pages: any[]) => {
+      return pages.length + 1;
+    },
+  });
 
   if (isLoading) {
     return (
@@ -55,7 +49,6 @@ const ImageGrid: FC = () => {
       </Box>
     );
   }
-  console.log(data);
 
   //display snackbar if any error occurs
   if (isError) {

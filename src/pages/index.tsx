@@ -12,7 +12,9 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Box sx={{ backgroundColor: '#f2f2f2', minHeight: '100vh' }}>
+      <Box
+        sx={{ backgroundColor: '#f2f2f2', minHeight: 'calculate(100vh - 40px' }}
+      >
         <ImageGrid />
       </Box>
       <Tooltip
