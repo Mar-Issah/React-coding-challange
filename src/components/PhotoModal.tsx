@@ -30,11 +30,11 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: { xs: '100vw', sm: '70%', md: '40%' },
+  width: { xs: '100vw', sm: '70%', md: '60%' },
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
-  height: '75%',
+  height: { xs: '65%', sm: '70%', md: '75%' },
 };
 
 const PhotoModal: FC<ModalProps> = ({ open, handleClose, photo }) => {
