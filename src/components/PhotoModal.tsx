@@ -30,11 +30,11 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '40%',
+  width: { xs: '100vw', sm: '70%', md: '40%' },
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
-  height: '80%',
+  height: '75%',
 };
 
 const PhotoModal: FC<ModalProps> = ({ open, handleClose, photo }) => {
@@ -56,7 +56,7 @@ const PhotoModal: FC<ModalProps> = ({ open, handleClose, photo }) => {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <Card sx={{ boxShadow: 'none' }}>
+            <Card sx={{ boxShadow: 'none', height: '100%' }}>
               <CardHeader
                 avatar={
                   <Avatar
@@ -77,7 +77,7 @@ const PhotoModal: FC<ModalProps> = ({ open, handleClose, photo }) => {
                   backgroundImage: `url(${photo.urls.small_s3})`,
                 }}
               ></ImageContainer>
-              <CardContent>
+              <CardContent sx={{ padding: '0', paddingLeft: '12px' }}>
                 <Typography variant='body2' color='text.secondary'>
                   {photo.description || 'No description available'}
                 </Typography>
