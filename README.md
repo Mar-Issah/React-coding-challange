@@ -8,7 +8,7 @@ This app displays data from Unsplash API server.
 
 - Clone repo to local machine.
 
-- Refer to the Unsplash API docs here to set up a developer account and get an ACCESS ID: [https://unsplash.com/documentation](https://unsplash.com/documentation)
+- Refer to the Unsplash API docs here to set up a developer account and get an ACCESS ID: [https://unsplash.com/documentation](https://unsplash.com/documentation).
 
 - Rename .env.example to .env.local and enter your ACCESS ID.
 
