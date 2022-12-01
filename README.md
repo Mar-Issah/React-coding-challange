@@ -1,4 +1,4 @@
-## TechGuilds Coding Challenge
+## My Coding Challenge
 
 This is an application for TechGuilds built using create-next-app and MUI as well as other libraries.
 
