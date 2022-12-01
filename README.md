@@ -6,7 +6,7 @@ This app displays data from Unsplash API server.
 
 ## Setup Instructions
 
-- Clone repo to local machine
+- Clone repo to local machine.
 
 - Refer to the Unsplash API docs here to set up a developer account and get an ACCESS ID: [https://unsplash.com/documentation](https://unsplash.com/documentation)
 
