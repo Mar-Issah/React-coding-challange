@@ -1,4 +1,4 @@
-## My Coding Challenge
+## My Photo Challenge
 
 This is an application for TechGuilds built using create-next-app and MUI as well as other libraries.
 
