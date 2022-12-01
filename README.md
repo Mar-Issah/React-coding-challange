@@ -20,7 +20,7 @@ npm install
 yarn install
 ```
 
-- Run locally using
+- Run locally using.
 
 ```bash
 npm run dev
