@@ -12,7 +12,7 @@ This app displays data from Unsplash API server.
 
 - Rename .env.example to .env.local and enter your ACCESS ID.
 
-- Install dependencies using
+- Install dependencies using.
 
 ```bash
 npm install
